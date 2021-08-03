@@ -1,0 +1,6 @@
+framework module ISUtils {
+  umbrella header "ISUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}

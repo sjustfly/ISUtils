@@ -1,0 +1,42 @@
+PODS:
+  - ISUtils (0.1.0):
+    - ISUtils/NSString (= 0.1.0)
+    - ISUtils/Other (= 0.1.0)
+    - ISUtils/UIButton (= 0.1.0)
+    - ISUtils/UIColor (= 0.1.0)
+    - ISUtils/UIImage (= 0.1.0)
+    - ISUtils/UINavigationItem (= 0.1.0)
+    - ISUtils/UITextField (= 0.1.0)
+    - ISUtils/UITextView (= 0.1.0)
+    - ISUtils/UIView (= 0.1.0)
+  - ISUtils/NSString (0.1.0)
+  - ISUtils/Other (0.1.0):
+    - Masonry
+  - ISUtils/UIButton (0.1.0)
+  - ISUtils/UIColor (0.1.0)
+  - ISUtils/UIImage (0.1.0)
+  - ISUtils/UINavigationItem (0.1.0)
+  - ISUtils/UITextField (0.1.0)
+  - ISUtils/UITextView (0.1.0)
+  - ISUtils/UIView (0.1.0):
+    - Masonry
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - ISUtils (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Masonry
+
+EXTERNAL SOURCES:
+  ISUtils:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ISUtils: 01d2ae3bbd1d4d88e2edf5a2a02e70b1976263e3
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: f31f05e74c2e9359ab1089e750ed7be3b4b4c9f1
+
+COCOAPODS: 1.10.1

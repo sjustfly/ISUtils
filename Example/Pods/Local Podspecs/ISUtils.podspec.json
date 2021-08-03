@@ -1,0 +1,101 @@
+{
+  "name": "ISUtils",
+  "version": "0.1.0",
+  "summary": "A short description of ISUtils.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/sjustfly/ISUtils",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sjustfly": "luochao_p@126.com"
+  },
+  "source": {
+    "git": "https://github.com/sjustfly/ISUtils.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ISUtils/Classes/*.h",
+  "subspecs": [
+    {
+      "name": "NSString",
+      "source_files": "ISUtils/Classes/NSString/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Other",
+      "source_files": "ISUtils/Classes/Other/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIButton",
+      "source_files": "ISUtils/Classes/UIButton/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UIColor",
+      "source_files": "ISUtils/Classes/UIColor/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "UIImage",
+      "source_files": "ISUtils/Classes/UIImage/*",
+      "frameworks": [
+        "Foundation",
+        "CoreGraphics",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UINavigationItem",
+      "source_files": "ISUtils/Classes/UINavigationItem/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UITextField",
+      "source_files": "ISUtils/Classes/UITextField/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UITextView",
+      "source_files": "ISUtils/Classes/UITextView/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UIView",
+      "source_files": "ISUtils/Classes/UIView/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "Masonry": [
+
+        ]
+      }
+    }
+  ]
+}
