@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIView+Additions.h"
-#import "MethodSwizzle.h"
+#import "../Other/MethodSwizzle.h"
 
 @implementation UIView (CLEdgeAdditions)
 

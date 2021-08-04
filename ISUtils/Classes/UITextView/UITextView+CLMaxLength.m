@@ -7,10 +7,10 @@
 //
 
 #import "UITextView+CLMaxLength.h"
-#import "NSString+CLCommonRegex.h"
+#import "../NSString/NSString+CLCommonRegex.h"
 #import <objc/runtime.h>
-#import "UIView+Additions.h"
-#import "MethodSwizzle.h"
+#import "../UIView/UIView+Additions.h"
+#import "../Other/MethodSwizzle.h"
 #import "UIView+CLShaker.h"
 
 #define inputLabelTailing 10

@@ -8,7 +8,7 @@
 
 #import "UIImage+CGImage.h"
 #import <CoreImage/CoreImage.h>
-#import "MethodSwizzle.h"
+#import "../Other/MethodSwizzle.h"
 
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0)
 @import ImageIO;

@@ -8,7 +8,7 @@
 
 #import "UIButton+CLCommonHandle.h"
 #import <objc/runtime.h>
-#import "MethodSwizzle.h"
+#import "../Other/MethodSwizzle.h"
 
 // Associative reference keys.
 static NSString *const indicatorViewKey = @"indicatorView";

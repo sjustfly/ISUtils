@@ -8,9 +8,9 @@
 
 #import "UITextField+CLCharacterFilter.h"
 #import <objc/runtime.h>
-#import "NSString+CLCommonRegex.h"
 #import "UIView+CLShaker.h"
-#import "MethodSwizzle.h"
+#import "../NSString/NSString+CLCommonRegex.h"
+#import "../Other/MethodSwizzle.h"
 
 static char filterRegexKey;
 static char filterAddObserverKey;

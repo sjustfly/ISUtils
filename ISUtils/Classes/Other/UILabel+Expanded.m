@@ -7,7 +7,7 @@
 //
 
 #import "UILabel+Expanded.h"
-#import "UIColor+CLHex.h"
+#import "../UIColor/UIColor+CLHex.h"
 #import <objc/runtime.h>
 #import "MethodSwizzle.h"
 

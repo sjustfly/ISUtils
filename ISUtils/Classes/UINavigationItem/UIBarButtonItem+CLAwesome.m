@@ -7,7 +7,7 @@
 //
 
 #import "UIBarButtonItem+CLAwesome.h"
-#import "UIColor+CLHex.h"
+#import "../UIColor/UIColor+CLHex.h"
 
 @implementation UIBarButtonItem (CLAwesome)
 

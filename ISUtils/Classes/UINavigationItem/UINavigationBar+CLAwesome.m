@@ -8,7 +8,7 @@
 
 #import "UINavigationBar+CLAwesome.h"
 #import <objc/runtime.h>
-#import "UIImage+CGImage.h"
+#import "../UIImage/UIImage+CGImage.h"
 
 @implementation UINavigationBar (CLAwesome)
 
