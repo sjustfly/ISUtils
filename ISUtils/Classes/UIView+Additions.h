@@ -39,6 +39,9 @@
 
 // 手动设置内容大小, 设置以后intrinsicContentSize 加上该大小
 @property (nonatomic) CGSize manualIntrinsicContentSize;
+
+- (void)addTapGestureWithTarget:(id)target action:(SEL)action;
+
 // 递归寻找第一响应者
 - (UIView *)firstResponder;
 

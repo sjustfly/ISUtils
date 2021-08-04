@@ -238,6 +238,12 @@
     }
 }
 
+- (void)addTapGestureWithTarget:(id)target action:(SEL)action {
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:target action:action];
+    [self addGestureRecognizer:tap];
+}
+
 - (UIView *)firstResponder {
     if ([self isFirstResponder]) {
         return self;

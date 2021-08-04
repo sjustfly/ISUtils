@@ -15,8 +15,11 @@ typedef NS_ENUM(NSInteger, CLImagePosition) {
     CLImagePositionBottom = 3,            //图片在下，文字在上
 };
 
+typedef void(^BlockHandle) (void);
 
 @interface UIButton (CLCommonHandle)
+
+- (void)handle:(BlockHandle)block;
 
 - (void)setImagePosition:(CLImagePosition)postion;
 /**

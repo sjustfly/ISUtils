@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "MethodSwizzle.h"
 
+static char buttonKey;
 // Associative reference keys.
 static NSString *const indicatorViewKey = @"indicatorView";
 static NSString *const buttonTextObjectKey = @"buttonTextObject";
@@ -22,6 +23,18 @@ static NSString *const kCLImagePositionSpacing = @"kCLImagePositionSpacing";
 
 + (void)load {
     SwizzleMethod(self, @selector(layoutSubviews), @selector(swizzle_layoutSubviews));
+}
+
+- (void)handle:(BlockHandle)block {
+    [self addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    objc_setAssociatedObject(self, &buttonKey, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void)buttonClick:(UIButton*)button {
+    BlockHandle block = objc_getAssociatedObject(self, &buttonKey);
+    if (block != nil) {
+        block();
+    }
 }
 
 - (void)swizzle_layoutSubviews {

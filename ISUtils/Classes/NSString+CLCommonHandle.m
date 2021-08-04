@@ -26,6 +26,13 @@
     return [pinYin substringToIndex:1];
 }
 
+- (BOOL)isChinese {
+    NSString *match = @"(^[\u4e00-\u9fa5]+$)";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", match];
+    return [predicate evaluateWithObject:self];
+}
+
+
 - (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)constrainedSize {
     CGSize size = [self boundingRectWithSize:constrainedSize
                                      options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
@@ -36,6 +43,16 @@
 
 - (CGFloat)heightWithFont:(UIFont *)font constrainedWidth:(CGFloat)constrainedWidth {
     return [self sizeWithFont:font constrainedSize:CGSizeMake(constrainedWidth, CGFLOAT_MAX)].height;
+}
+
+- (CGSize)getSizeWithHeight:(CGFloat)height font:(UIFont *)font {
+    CGSize size = [self boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil].size;
+    return size;
+}
+
+- (CGSize)getSizeWithWidth:(CGFloat)width font:(UIFont *)font {
+    CGSize size = [self boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil].size;
+    return size;
 }
 
 - (CGFloat)widthWithFont:(UIFont *)font constrainedHeight:(CGFloat)constrainedHeight {
@@ -97,29 +114,19 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (NSDictionary *)toJsonDictionary {
-    return [self jsonStringToObject];
-}
-
-- (NSArray *)toJsonArray {
-    return [self jsonStringToObject];
-}
-
-
 - (nullable id)jsonStringToObject {
-    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
-    if (!jsonData) {
+    NSData *paraData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    if (!paraData) {
         return nil;
     }
-    NSError *err;
-    id object = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                options:NSJSONReadingMutableContainers
-                                                  error:&err];
-    if(err) {
-        NSLog(@"json解析失败：%@",err);
-        return nil;
+    NSError *errorJson;
+    id jsonDict = [NSJSONSerialization JSONObjectWithData:paraData options:kNilOptions error:&errorJson];
+    if (errorJson != nil) {
+#ifdef DEBUG
+        NSLog(@"fail to get dictioanry from JSON: %@, error: %@", self, errorJson);
+#endif
     }
-    return object;
+    return jsonDict;
 }
 
 + (NSString *)formatFloat2Letter:(double)ft {
@@ -150,6 +157,88 @@
     numberFormatter.minimumFractionDigits = minimumFractionDigits;
     numberFormatter.maximumFractionDigits = maximumFractionDigits;
     return [numberFormatter stringFromNumber:[NSNumber numberWithDouble:number]];
+}
+
+- (NSDictionary *)toJsonDictionary {
+    return [self toJsonObject];
+}
+
+- (NSArray *)toJsonArray {
+    return [self toJsonObject];
+}
+
+- (id)toJsonObject {
+    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    if (!jsonData) {
+        return nil;
+    }
+    NSError *err;
+    id object = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                options:NSJSONReadingMutableContainers
+                                                  error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return object;
+}
+
+- (NSString *)decimalAdding:(NSString *)decimalString {
+    @try {
+        if (self.length == 0 && decimalString.length == 0) {
+            return @"";
+        }
+        if (self.length == 0) {
+            return decimalString;
+        }
+        if (decimalString.length == 0) {
+            return self;
+        }
+        NSDecimalNumber *d1 = [NSDecimalNumber decimalNumberWithString:self];
+        NSDecimalNumber *d2 = [NSDecimalNumber decimalNumberWithString:decimalString];
+        return [d1 decimalNumberByAdding:d2].stringValue;
+    } @catch (NSException *exception) {
+        return @"";
+    }
+}
+
+- (NSString *)decimalSubtracting:(NSString *)decimalString {
+    @try {
+        if (self.length == 0 && decimalString.length == 0) {
+            return @"";
+        }
+        NSDecimalNumber *d1 = [NSDecimalNumber decimalNumberWithString:self];
+        NSDecimalNumber *d2 = [NSDecimalNumber decimalNumberWithString:decimalString];
+        return [d1 decimalNumberBySubtracting:d2].stringValue;
+    } @catch (NSException *exception) {
+        return @"";
+    }
+}
+
+- (NSString *)decimalMultiplying:(NSString *)decimalString {
+    @try {
+        if (self.length == 0 && decimalString.length == 0) {
+            return @"";
+        }
+        NSDecimalNumber *d1 = [NSDecimalNumber decimalNumberWithString:self];
+        NSDecimalNumber *d2 = [NSDecimalNumber decimalNumberWithString:decimalString];
+        return [d1 decimalNumberByMultiplyingBy:d2].stringValue;
+    } @catch (NSException *exception) {
+        return @"";
+    }
+}
+
+- (NSString *)decimalDividing:(NSString *)decimalString {
+    @try {
+        if (self.length == 0 && decimalString.length == 0) {
+            return @"";
+        }
+        NSDecimalNumber *d1 = [NSDecimalNumber decimalNumberWithString:self];
+        NSDecimalNumber *d2 = [NSDecimalNumber decimalNumberWithString:decimalString];
+        return [d1 decimalNumberByDividingBy:d2].stringValue;
+    } @catch (NSException *exception) {
+        return @"";
+    }
 }
 
 @end
