@@ -8,11 +8,7 @@
 #ifndef ISComonMacro_h
 #define ISComonMacro_h
 
-#import "UIImage+AssociatedBundle.h"
-
 #define URL(url) [NSURL URLWithString:url]
-
-#define IMAGE_BUNDLE_NAMED(imgName) [UIImage imageFromBundleNamed:imgName]
 
 // 当前版本
 #define SystemVersion          ([[UIDevice currentDevice] systemVersion])
