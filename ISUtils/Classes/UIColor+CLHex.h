@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ISUtils.h"
+
 ///常用颜色
 #define black_color     [UIColor blackColor]
 #define blue_color      [UIColor blueColor]
@@ -26,19 +26,11 @@
 #define gray_color      [UIColor grayColor]
 #define magenta_color   [UIColor magentaColor]
 
-
-#define kThemeColor KRGBString(@"#40CCC0")
-// 主背景色
-#define kBackgroundColor kRGBA(248, 248, 248, 1)
-// 分割线
-#define kSeparatorColor KRGBString(@"#DDDDDD")
-
 /********************************************* 颜色设置 *******************************/
 #define kRGBA(R,G,B,A)  [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 #define KRGBString(RGB) [UIColor colorWithRGBHexString:RGB]
 #define kRandomColor    RGB(arc4random()%256,arc4random()%256,arc4random()%256)
 
-#define kDefaultColor   KRGBString(@"#e0e0e0")
 // 颜色
 #define RGB(A,B,C) [UIColor colorWithRed:(A)/255.0 green:(B)/255.0 blue:(C)/255.0 alpha:1.0]
 #define kRGBA(R,G,B,A)  [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
@@ -55,6 +47,7 @@
 #define KColor_666666   KRGBString(@"#666666")  ///< 灰色
 #define KColor_FF5266   KRGBString(@"#FF5266")  ///< 红色
 #define KColorLigthGray KRGBString(@"#999999")  ///< 浅灰字体色
+#define KColor_DDDDDD   KRGBString(@"#DDDDDD")
 
 @interface UIColor (CLHex)
 
