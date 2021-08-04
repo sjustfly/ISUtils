@@ -379,5 +379,43 @@ static CGBitmapInfo const kEISystemDefaultOrder = kCGBitmapByteOrderDefault | kC
     return codeImage;
 }
 
+- (UIImage *)imageAddCornerWithDirection:(UIRectCorner)direction radius:(CGFloat)radius andSize:(CGSize)size {
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:direction cornerRadii:CGSizeMake(radius, radius)];
+    CGContextAddPath(ctx,path.CGPath);
+    CGContextClip(ctx);
+    [self drawInRect:rect];
+    CGContextDrawPath(ctx, kCGPathFillStroke);
+    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
++ (NSString *)imageToBase64:(UIImage *)sourceImage {
+    if (!sourceImage) {
+        sourceImage = [UIImage new];
+    }
+    NSData *data = UIImagePNGRepresentation(sourceImage);
+    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    return encodedImageStr;
+}
+
++ (UIImage *)base64ToImage:(NSString *)baseStr {
+    if (baseStr)
+    {
+        NSData *decodedImageData = [[NSData alloc]
+                                    initWithBase64EncodedString:baseStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *decodedImage = [UIImage imageWithData:decodedImageData];
+        return decodedImage;
+    }
+    else
+    {
+        return [UIImage new];
+    }
+    
+}
 
 @end

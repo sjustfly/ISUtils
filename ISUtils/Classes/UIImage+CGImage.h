@@ -87,4 +87,9 @@ typedef struct EIImageInfo
 // 根据size和内容生成二维码图片 qrColor默认blackColor bkColor默认whiteColor
 + (UIImage *)QRImageWithString:(NSString *)text qrSize:(CGSize)size qrColor:(nullable UIColor *)qrColor bkColor:(nullable UIColor *)bkColor;
 
+- (UIImage *)imageAddCornerWithDirection:(UIRectCorner)direction radius:(CGFloat)radius andSize:(CGSize)size;
+
++ (NSString *)imageToBase64:(UIImage *)sourceImage;
++ (UIImage *)base64ToImage:(NSString *)baseStr;
+
 @end

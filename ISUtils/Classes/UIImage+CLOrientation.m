@@ -90,6 +90,7 @@
     return img;
 }
 
+
 - (UIImage *)flip:(BOOL)isHorizontal {
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
