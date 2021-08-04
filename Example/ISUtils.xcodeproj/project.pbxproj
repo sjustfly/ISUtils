@@ -66,7 +66,7 @@
 		A0491300C4E0404AE92ED9BA /* Pods-ISUtils_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISUtils_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ISUtils_Tests/Pods-ISUtils_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A111087B51251EE15438DDDB /* Pods-ISUtils_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISUtils_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ISUtils_Example/Pods-ISUtils_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C1144396A1B093E1B80F7AA6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		D670C0751DDE71C48C77289E /* ISUtils.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ISUtils.podspec; path = ../ISUtils.podspec; sourceTree = "<group>"; };
+		D670C0751DDE71C48C77289E /* ISUtils.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ISUtils.podspec; path = ../ISUtils.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

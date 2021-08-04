@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ISUtils'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of ISUtils.'
 
 # This description is used to generate tags and improve search results.
@@ -33,48 +33,48 @@ TODO: Add long description of the pod here.
   s.source_files = 'Classes/*.h'
   
   s.subspec 'NSString' do |bb|
-      bb.source_files = 'Classes/NSString/*'
+      bb.source_files = 'ISUtils/Classes/NSString/*'
       bb.frameworks = 'Foundation'
   end
   
   s.subspec 'Other' do |cc|
-      cc.source_files = 'Classes/Other/*'
+      cc.source_files = 'ISUtils/Classes/Other/*'
       cc.frameworks = 'Foundation', 'UIKit'
       cc.dependency 'Masonry'
   end
   
   s.subspec 'UIButton' do |dd|
-      dd.source_files = 'Classes/UIButton/*'
+      dd.source_files = 'ISUtils/Classes/UIButton/*'
       dd.frameworks = 'Foundation', 'UIKit'
   end
   
   s.subspec 'UIColor' do |ee|
-      ee.source_files = 'Classes/UIColor/*'
+      ee.source_files = 'ISUtils/Classes/UIColor/*'
       ee.frameworks = 'Foundation'
   end
   
   s.subspec 'UIImage' do |ff|
-      ff.source_files = 'Classes/UIImage/*'
+      ff.source_files = 'ISUtils/Classes/UIImage/*'
       ff.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
   end
   
   s.subspec 'UINavigationItem' do |gg|
-      gg.source_files = 'Classes/UINavigationItem/*'
+      gg.source_files = 'ISUtils/Classes/UINavigationItem/*'
       gg.frameworks = 'Foundation', 'UIKit'
   end
   
   s.subspec 'UITextField' do |hh|
-      hh.source_files = 'Classes/UITextField/*'
+      hh.source_files = 'ISUtils/Classes/UITextField/*'
       hh.frameworks = 'Foundation', 'UIKit'
   end
   
   s.subspec 'UITextView' do |ii|
-      ii.source_files = 'Classes/UITextView/*'
+      ii.source_files = 'ISUtils/Classes/UITextView/*'
       ii.frameworks = 'Foundation', 'UIKit'
   end
   
   s.subspec 'UIView' do |jj|
-      jj.source_files = 'Classes/UIView/*'
+      jj.source_files = 'ISUtils/Classes/UIView/*'
       jj.frameworks = 'Foundation', 'UIKit'
       jj.dependency 'Masonry'
   end
