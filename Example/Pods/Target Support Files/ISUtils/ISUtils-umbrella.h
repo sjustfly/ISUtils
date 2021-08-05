@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "CLMutableOrderedDictionary.h"
 #import "CLOrderedAlertManager.h"
 #import "CLWeakProxy.h"
 #import "ISComonMacro.h"
