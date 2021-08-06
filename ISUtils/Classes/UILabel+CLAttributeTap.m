@@ -31,6 +31,10 @@ NSAttributedStringKey const ISTapAttributeName = @"ISTapAttributeName";
 }
 
 - (void)swizze_setAttributedText:(NSAttributedString *)attributedText {
+    if (attributedText == nil) {
+        [self swizze_setAttributedText:nil];
+        return;
+    }
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:attributedText.string];
     NSMutableArray *tmpArray = [NSMutableArray array];
     [attributedText enumerateAttributesInRange:NSMakeRange(0, attributedText.length) options:0 usingBlock:^(NSDictionary<NSAttributedStringKey,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {

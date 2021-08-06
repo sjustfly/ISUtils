@@ -10,20 +10,23 @@
 
 @implementation NSString (CLCommonHandle)
 
-- (NSString *)pinyin {
+- (nonnull NSString *)pinyin {
     NSMutableString *pinyin = [NSMutableString stringWithString:self];
      //将汉字转换为拼音(带音标)
     CFStringTransform((__bridge CFMutableStringRef)(pinyin), NULL, kCFStringTransformMandarinLatin, NO);
     //去掉拼音的音标
     CFStringTransform((__bridge CFMutableStringRef)(pinyin), NULL, kCFStringTransformStripCombiningMarks, NO);
-    return pinyin;
+    return pinyin ? pinyin : @"";
 }
 
-- (NSString *)firstCharactor {
+- (nonnull NSString *)firstCharactor {
     //转化为大写拼音
     NSString *pinYin = [self pinyin];
     //获取并返回首字母
-    return [pinYin substringToIndex:1];
+    if (pinYin.length > 0) {
+        return [pinYin substringToIndex:1];
+    }
+    return @"";
 }
 
 - (BOOL)isChinese {
@@ -95,7 +98,7 @@
     return returnValue;
 }
 
-- (NSString *)removingEmoji {
+- (nonnull NSString *)removingEmoji {
     NSMutableString* __block buffer = [NSMutableString stringWithCapacity:[self length]];
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
                              options:NSStringEnumerationByComposedCharacterSequences
@@ -106,11 +109,11 @@
     return buffer;
 }
 
-- (NSString *)trimmingWhitespace {
+- (nonnull NSString *)trimmingWhitespace {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
-- (NSString *)trimmingWhitespaceAndNewlines {
+- (nonnull NSString *)trimmingWhitespaceAndNewlines {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
@@ -129,7 +132,7 @@
     return jsonDict;
 }
 
-+ (NSString *)formatFloat2Letter:(double)ft {
++ (nonnull NSString *)formatFloat2Letter:(double)ft {
     if (fmodl(ft, 1)==0) {//如果有一位小数点
         return [NSString stringWithFormat:@"%.0f",ft];
     } else if (fmodl(ft*10, 1)==0) {//如果有两位小数点
@@ -139,7 +142,7 @@
     }
 }
 
-- (NSString *)formatLength:(NSUInteger)length {
+- (nonnull NSString *)formatLength:(NSUInteger)length {
     if (length == 0 || self.length <= length) {
         return self;
     }
@@ -147,11 +150,11 @@
     return [NSString stringWithFormat:@"%@...",s];
 }
 
-+ (NSString *)removeFloatAllZero:(double)number {
++ (nonnull NSString *)removeFloatAllZero:(double)number {
     return [NSString stringWithFormat:@"%@",@(number)];
 }
 
-+ (NSString *)formatNumber:(double)number minimum:(NSUInteger)minimumFractionDigits maxnum:(NSUInteger)maximumFractionDigits {
++ (nonnull NSString *)formatNumber:(double)number minimum:(NSUInteger)minimumFractionDigits maxnum:(NSUInteger)maximumFractionDigits {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     numberFormatter.minimumFractionDigits = minimumFractionDigits;
@@ -159,11 +162,11 @@
     return [numberFormatter stringFromNumber:[NSNumber numberWithDouble:number]];
 }
 
-- (NSDictionary *)toJsonDictionary {
+- (nullable NSDictionary *)toJsonDictionary {
     return [self toJsonObject];
 }
 
-- (NSArray *)toJsonArray {
+- (nullable NSArray *)toJsonArray {
     return [self toJsonObject];
 }
 
@@ -183,7 +186,7 @@
     return object;
 }
 
-- (NSString *)decimalAdding:(NSString *)decimalString {
+- (nonnull NSString *)decimalAdding:(NSString *)decimalString {
     @try {
         if (self.length == 0 && decimalString.length == 0) {
             return @"";
@@ -202,7 +205,7 @@
     }
 }
 
-- (NSString *)decimalSubtracting:(NSString *)decimalString {
+- (nonnull NSString *)decimalSubtracting:(NSString *)decimalString {
     @try {
         if (self.length == 0 && decimalString.length == 0) {
             return @"";
@@ -215,7 +218,7 @@
     }
 }
 
-- (NSString *)decimalMultiplying:(NSString *)decimalString {
+- (nonnull NSString *)decimalMultiplying:(NSString *)decimalString {
     @try {
         if (self.length == 0 && decimalString.length == 0) {
             return @"";
@@ -228,7 +231,7 @@
     }
 }
 
-- (NSString *)decimalDividing:(NSString *)decimalString {
+- (nonnull NSString *)decimalDividing:(NSString *)decimalString {
     @try {
         if (self.length == 0 && decimalString.length == 0) {
             return @"";
