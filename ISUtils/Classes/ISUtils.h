@@ -43,11 +43,10 @@
 #import "View+MASExpanded.h"
 #import "UIApplication+Edge.h"
 #import "NSDictionary+NilNull.h"
-#import "CLOrderedAlertManager.h"
 
 // UIView
 #import "UIView+Additions.h"
 #import "UIView+CLScreensshot.h"
-#import "ISComonMacro.h"
+#import "CLComonMacro.h"
 
 #endif /* ISUtils_h */

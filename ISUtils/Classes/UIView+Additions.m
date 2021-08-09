@@ -113,15 +113,6 @@
     self.frame = frame;
 }
 
-- (UIColor *)borderColor {
-    return [UIColor colorWithCGColor:self.layer.borderColor];
-}
-
-- (void)setBorderColor:(UIColor *)borderColor {
-    self.layer.borderWidth = 0.5;
-    self.layer.borderColor = [borderColor CGColor];
-}
-
 - (UIViewController *)viewController {
     UIViewController *viewController = nil;
     UIResponder *next = self.nextResponder;

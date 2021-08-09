@@ -1,12 +1,12 @@
 //
-//  ISComonMacro.h
+//  CLComonMacro.h
 //  Pods
 //
 //  Created by chao luo on 5/3/19.
 //
 
-#ifndef ISComonMacro_h
-#define ISComonMacro_h
+#ifndef CLComonMacro_h
+#define CLComonMacro_h
 
 #define URL(url) [NSURL URLWithString:url]
 #define IMAGE_NAMED(imgName) [UIImage imageNamed:imgName]
@@ -28,4 +28,4 @@
 [View.layer setCornerRadius:(Radius)];\
 [View.layer setMasksToBounds:YES]
 
-#endif /* ISComonMacro_h */
+#endif /* CLComonMacroo_h */

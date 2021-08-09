@@ -59,7 +59,7 @@
 + (nonnull NSString *)formatNumber:(double)number minimum:(NSUInteger)minimumFractionDigits maxnum:(NSUInteger)maximumFractionDigits;
 
 - (nullable NSDictionary *)toJsonDictionary;
-- (nullable NSArray *)toJsonArray;
+- (nullable NSArray<NSDictionary *> *)toJsonArray;
 
 /// 加减乘除
 - (nonnull NSString *)decimalAdding:(NSString *)decimalString;

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CLOrderedAlertManager.h"
 
 typedef void(^actionHandler)(UIAlertController *alert, UIAlertAction *action, NSUInteger index);
 typedef void(^textFieldHandler)(UITextField *textField, NSUInteger index);

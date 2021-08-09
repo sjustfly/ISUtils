@@ -10,10 +10,9 @@
 #endif
 #endif
 
+#import "CLComonMacro.h"
 #import "CLMutableOrderedDictionary.h"
-#import "CLOrderedAlertManager.h"
 #import "CLWeakProxy.h"
-#import "ISComonMacro.h"
 #import "ISUtils.h"
 #import "MethodSwizzle.h"
 #import "NSDictionary+NilNull.h"

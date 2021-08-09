@@ -166,7 +166,7 @@
     return [self toJsonObject];
 }
 
-- (nullable NSArray *)toJsonArray {
+- (nullable NSArray<NSDictionary *> *)toJsonArray {
     return [self toJsonObject];
 }
 
