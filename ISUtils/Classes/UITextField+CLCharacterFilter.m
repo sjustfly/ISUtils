@@ -240,7 +240,7 @@ static char maxLengthKey;
 }
 
 - (void)setShouldChangeCharactersBlock:(CLDynamicValidateCharactersBlock)shouldChangeCharactersBlock {
-    self.delegate = self;
+    [self swizzle_setDelegate:self];
     objc_setAssociatedObject(self, &filterShouldChangeKey, shouldChangeCharactersBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
