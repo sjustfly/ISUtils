@@ -40,8 +40,11 @@
 
 //  去除空格
 - (nonnull NSString *)trimmingWhitespace;
+//  去除换行符
+- (nonnull NSString *)trimmingNewlines;
 // @brief  去除空字符串与空行
 - (nonnull NSString *)trimmingWhitespaceAndNewlines;
+
 
 // JSON字符串转成NSDictionary
 - (nullable id)jsonStringToObject;
