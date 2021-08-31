@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)boolForKey:(id<NSCopying>)aKey;
 - (double)doubleForKey:(id<NSCopying>)aKey;
 - (NSInteger)integerForKey:(id<NSCopying>)aKey;
+- (int64_t)int64ForKey:(id<NSCopying>)aKey;
 - (NSString *)stringForKey:(id<NSCopying>)aKey;
 - (id)objectNullToNilForKey:(id<NSCopying>)aKey;
 

@@ -25,6 +25,11 @@
     return [data integerValue];
 }
 
+- (int64_t)int64ForKey:(id<NSCopying>)aKey {
+    id data = [self objectNullToNilForKey:aKey];
+    return [data longValue];
+}
+
 - (NSString *)stringForKey:(id<NSCopying>)aKey {
     id data = [self objectNullToNilForKey:aKey];
     return data ? [NSString stringWithFormat:@"%@", data] : nil;
